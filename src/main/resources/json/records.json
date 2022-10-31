@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Abhishek",
+    "salary": "145000",
+    "currency": "USD",
+    "department": "ENGINEERING",
+    "sub_department": "PLATFORM"
+  },
+  {
+    "name": "Anurag",
+    "salary": "90000",
+    "currency": "USD",
+    "department": "BANKING",
+    "on_contract": "true",
+    "sub_department": "LOAN"
+  },
+  {
+    "name": "Himani",
+    "salary": "240000",
+    "currency": "USD",
+    "department": "BANKING",
+    "sub_department": "PLATFORM"
+  },
+  {
+    "name": "Yatendra",
+    "salary": "30",
+    "currency": "USD",
+    "department": "OPERATIONS",
+    "sub_department": "CUSTOMER_ONBOARDING"
+  },
+  {
+    "name": "Ragini",
+    "salary": "30",
+    "currency": "USD",
+    "department": "ENGINEERING",
+    "sub_department": "PLATFORM"
+  },
+  {
+    "name": "Nikhil",
+    "salary": "110000",
+    "currency": "USD",
+    "on_contract": "true",
+    "department": "ENGINEERING",
+    "sub_department": "PLATFORM"
+  },
+  {
+    "name": "Guljit",
+    "salary": "30",
+    "currency": "USD",
+    "department": "ADMINISTRATION",
+    "sub_department": "AGRICULTURE"
+  },
+  {
+    "name": "Himanshu",
+    "salary": "70000",
+    "currency": "EUR",
+    "department": "OPERATIONS",
+    "sub_department": "CUSTOMER_ONBOARDING"
+  },
+  {
+    "name": "Anupam",
+    "salary": "200000000",
+    "currency": "INR",
+    "department": "ENGINEERING",
+    "sub_department": "PLATFORM"
+  }
+]
