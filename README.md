@@ -6,7 +6,7 @@ Record Aggregation Service is a micro-service to address some functionality whic
 ## Features
 - Add a new record to the dataset.
 - Delete a new record from the dataset.
-- fetch Summary Statistics for salary
+- fetch Summary Statistics(min, max, mean) for salary
     - Entire dataset
     - GroupBy department
     - GroupBy department and subGroup by subDepartment
@@ -96,14 +96,14 @@ curl --location --request POST 'http://localhost:8080/api/v1/records' \
 ```
 ##### HappyPath - Response
 ```aidl
-{
+'{
     "id": 12,
     "name": "aman",
     "salary": "12300",
     "currency": null,
     "department": "ENGINEERING",
     "subDepartment": "PLATFORM"
-}
+}'
 ```
 
 ##### Other Request Collections
