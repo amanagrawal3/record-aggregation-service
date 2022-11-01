@@ -6,7 +6,7 @@ Record Aggregation Service is a micro-service to address some functionality whic
 ## Features
 - Add a new record to the dataset.
 - Delete a new record from the dataset.
-- fetch Summary Statistics for salary
+- fetch Summary Statistics(min, max, mean) for salary
     - Entire dataset
     - GroupBy department
     - GroupBy department and subGroup by subDepartment
@@ -83,26 +83,25 @@ This API is used to register a new user who have admin access to perform CRUD on
 
 ##### HappyPath - Request
 ```
-curl --location --request POST 'http://localhost:8080/api/v1/records' \
---header 'X-AUTH-TOKEN: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWFuIiwiYXVkaWVuY2UiOiJ3ZWIiLCJjcmVhdGVkIjoxNjY3MjA2NDkwMTY0LCJleHAiOjE2Njc4MTEyOTB9.UpVDfH5q75v7xARde6rEO1-cBjiCGJC7vgNYjmEm5DcYBz-L98es1b9cPyeMeWcgsjlGoeQiqFVEP_Z_x6y-QA' \
+curl --location --request POST 'http://localhost:8080/api/users/register' \
+--header 'accept: */*' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "name": "aman",
-    "salary": "12300",
-    "currency": "USD",
-    "department": "ENGINEERING",
-    "sub_department": "PLATFORM"
+    "username": "amantest",
+    "password": "test",
+    "device": "web",
+    "email": "aman@gmail.com"
 }'
 ```
 ##### HappyPath - Response
-```aidl
+```
 {
     "id": 12,
-    "name": "aman",
-    "salary": "12300",
-    "currency": null,
-    "department": "ENGINEERING",
-    "subDepartment": "PLATFORM"
+    "username": "amantest",
+    "password": "$2a$10$.3hGrCtMxe5r1uTvzvqjIOG3ahT6gAOH.4tAGXNc2bpxv8doL9K1m",
+    "email": "aman@gmail.com",
+    "lastPasswordReset": "2022-11-01T08:39:39.107+00:00",
+    "authorities": "ADMIN"
 }
 ```
 
@@ -126,7 +125,7 @@ curl --location --request POST 'http://localhost:8080/api/auth' \
 }
 ```
 ##### HappyPath - Response
-```aidl
+```
 200 OK
 {
     "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWFuIiwiYXVkaWVuY2UiOiJ3ZWIiLCJjcmVhdGVkIjoxNjY3MjMzMjc2NTEzLCJleHAiOjE2Njc4MzgwNzZ9.-cfLvPrbDK1sxpJRCwQP0mk3LccZR4d6GY32FnvKhGvnHxsU4Kbg6iy42Idui68ywwdtnIHaz240a2EScwcJbA"
@@ -156,7 +155,7 @@ curl --location --request POST 'http://localhost:8080/api/v1/records' \
 
 ```
 ##### HappyPath - Response
-```aidl
+```
 201 Created
 {
     "id": 12,
@@ -171,8 +170,6 @@ curl --location --request POST 'http://localhost:8080/api/v1/records' \
 
 [AddRecord](https://github.com/amanagrawal3/record-aggregation-service/blob/main/collections/AddRecord.postman_collection.json)
 
-
-
 - ### Delete Record:
 This API is used to delete a record from the system.
 
@@ -186,7 +183,7 @@ curl --location --request DELETE 'http://localhost:8080/api/v1/records/8' \
 --data-raw ''
 ```
 ##### HappyPath - Response
-```aidl
+```
 200 OK
 ```
 
@@ -210,7 +207,7 @@ curl --location --request GET 'http://localhost:8080/api/v1/records/summary' \
 --header 'X-AUTH-TOKEN: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWFuIiwiYXVkaWVuY2UiOiJ3ZWIiLCJjcmVhdGVkIjoxNjY3MjMzMjc2NTEzLCJleHAiOjE2Njc4MzgwNzZ9.-cfLvPrbDK1sxpJRCwQP0mk3LccZR4d6GY32FnvKhGvnHxsU4Kbg6iy42Idui68ywwdtnIHaz240a2EScwcJbA'
 ```
   ##### HappyPath - Response
-```aidl
+```
 200 OK
 {
     "summaryStatistics": [
@@ -235,7 +232,7 @@ curl --location --request GET 'http://localhost:8080/api/v1/records/summary/dept
 --header 'X-AUTH-TOKEN: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWFuIiwiYXVkaWVuY2UiOiJ3ZWIiLCJjcmVhdGVkIjoxNjY3MjMzMjc2NTEzLCJleHAiOjE2Njc4MzgwNzZ9.-cfLvPrbDK1sxpJRCwQP0mk3LccZR4d6GY32FnvKhGvnHxsU4Kbg6iy42Idui68ywwdtnIHaz240a2EScwcJbA'
 ```
   ##### HappyPath - Response
-```aidl
+```
 200 OK
 {{
     "summaryStatistics": [
@@ -284,7 +281,7 @@ curl --location --request GET 'http://localhost:8080/api/v1/records/summary/dept
 --header 'X-AUTH-TOKEN: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbWFuIiwiYXVkaWVuY2UiOiJ3ZWIiLCJjcmVhdGVkIjoxNjY3MjMzMjc2NTEzLCJleHAiOjE2Njc4MzgwNzZ9.-cfLvPrbDK1sxpJRCwQP0mk3LccZR4d6GY32FnvKhGvnHxsU4Kbg6iy42Idui68ywwdtnIHaz240a2EScwcJbA'
 ```
   ##### HappyPath - Response
-```aidl
+```
 200 OK
 {
     "summaryStatistics": [
