@@ -27,11 +27,11 @@ Steps to build a Docker image:
 unzip aman-agrawal.zip
 git clone https://github.com/amanagrawal3/record-aggregation-service.git
 ```
-- Build the image
+- Go to record-aggregation-service and build the image
 ```
 docker build -t record-service .
 ```
-This will take a few seconds.
+This will take a few minutes.
 
 - Run the image's default command, which should start everything up. The -p option forwards the container's port 8080 on the host. (Note that the host will actually be a guest if you are using boot2docker, so you may need to re-forward the port in VirtualBox.)
 ```
