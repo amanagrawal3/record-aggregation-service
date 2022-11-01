@@ -1,5 +1,4 @@
 # Record Aggregation Rervice
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Record Aggregation Service is a micro-service to address some functionality which is useful to derive simplified summary statistics (mean, min, max) on a dataset.
 
